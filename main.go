@@ -1,8 +1,13 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+	"github.com/laioncorcino/students/database"
+	"github.com/laioncorcino/students/route"
+)
 
 func main() {
-	r := gin.Default()
-	_ = r.Run(":8001")
+	fmt.Println("Iniciando servidor Rest em Go ..")
+	database.ConnectDatabase()
+	route.HandleRequest()
 }
